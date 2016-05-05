@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div> 
+    <script type="text/babel">
+var MyExample = React.createClass({
+  render: function() {
+    var elapsed = Math.round(this.props.elapsed  / 100);
+    var message =
+      'React has been successfully running for ' + seconds + ' seconds.';
+
+    return <p>{message}</p>;
+  }
+});
+
+var start = new Date().getTime();
+
+setInterval(function() {
+  ReactDOM.render(
+    <MyExample elapsed={new Date().getTime() - start} />,
+    document.getElementById('example')
+  );
+}, 1);
+
+    </script>
+  </body>
+</html>
